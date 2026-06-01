@@ -337,17 +337,17 @@ footer {
 
     .coming-soon-wrapper {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
     }
 
     .coming-soon {
-        width: 75%;
-        padding-left: 0;
+        width: 60%;
+        padding-left: clamp(10px, 4vw, 24px);
     }
 
     .coming-soon-face {
-        width: 60%;
-        margin-top: -20px;
+        width: 50%;
+        margin-top: -40px;
         align-self: flex-end;
     }
 }
