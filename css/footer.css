@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+/* ==================================================
+　フッター（Footer）スタイル
+================================================== */
+footer {
+    width: 100%;
+    padding: 60px 20px 60px 20px;
+    /* 上下にゆったりとした余白を確保 */
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* --- フッター内の要素をすべて中央寄せ・縦一列にする --- */
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-text {
+    font-size: 1.1rem;
+    /* カンプの通り、存在感のある大きめのサイズ感に設定 */
+    font-weight: 500;
+    color: #1a1a1a;
+    margin-bottom: -20px;
+}
+
+/* 大学ロゴのコンテナ */
+.footer-links div {
+    margin-bottom: 25px;
+}
+
+/* 大学ロゴ画像自体のサイズ調整 */
+.footer-links div img {
+    height: 32px;
+    /* カンプのバランスに合わせた高さ（お好みで調整してください） */
+    width: auto;
+    display: block;
+}
+
+/* --- SNSアイコンエリア（横並びにする） --- */
+.footer-links ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    /* XとInstagramの間の隙間 */
+    list-style: none;
+    padding: 0;
+    margin: 0 0 35px 0;
+    /* 下のコピーライトとの隙間 */
+}
+
+/* SNSロゴ画像自体のサイズ調整 */
+.footer-links ul img {
+    width: 30px;
+    /* アイコンの大きさを均等にキープ */
+    height: auto;
+    display: block;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.footer-links ul a:hover img {
+    opacity: 0.7;
+    transform: scale(1.1);
+    /* ホバー時に少し大きくして心地よい反応に */
+}
+
+/* --- コピーライト --- */
+.copyright {
+    font-family: 'Zen Maru Gothic', serif;
+    /* 他のパーツと統一感のあるセリフ・丸ゴシック系 */
+    font-size: 1.4rem;
+    /* カンプの通り、存在感のある大きめのサイズ感に設定 */
+    font-weight: 500;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+/* ==================================================
+   フッター：スマホ対応（画面幅 767px 以下）
+================================================== */
+@media (max-width: 767px) {
+    footer {
+        padding: 40px 20px 30px 20px;
+        /* スマホでは上下の余白を少しコンパクトに */
+    }
+
+    .copyright {
+        font-size: 1.1rem;
+        /* スマホ画面でも1行で綺麗に収まるように少し縮小 */
+    }
+}
