@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+/* 1. ローディング画面の外枠 */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #FDD600;
+    /* heromotion.mp4の背景色 */
+    z-index: 9999;
+}
+
+/* 2. 動画（画面中央に完全固定・ロック） */
+#hero-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100% !important;
+    object-fit: cover;
+    z-index: 2;
+    /* CSSでのtransitionは付与せず、JSでリアルタイムに削ります */
+}
+
+/* 3. ワイプバー（黒い棒） */
+#wipe-bar {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    /* 黒い棒の太さ */
+    background-color: #1a1a1a;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.7);
+    z-index: 3;
+    /* 動画より手前 */
+
+    /* 初期状態：画面の一番下（画面外）に隠しておく */
+    bottom: -40px;
+
+    /* 棒がせり上がる速度とイージング（ここでお好みの数値に調整してください） */
+    transition: bottom 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+
+    pointer-events: none;
+}
+
+/* ワイプ発火時：黒い棒だけを一番上まで移動させる */
+#loading-screen.is-hidden #wipe-bar {
+    bottom: 100%;
+}

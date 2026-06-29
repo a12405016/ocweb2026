@@ -25,12 +25,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap"
         rel="stylesheet">
 
-    <link rel="icon" href="images/tablogp.png" type="image/png">
+    <link rel="icon" href="images/tablogo.png" type="image/png">
     <title>東京造形大学オープンキャンパス2026 SPICE</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/motion.css">
+    <link rel="stylesheet" href="css/acces.css">
 </head>
 
 <body>
+    <!-- ローディング画面 -->
+    <div id="loading-screen">
+        <video id="hero-video" muted playsinline>
+            <source src="movie/heromotion.mp4" type="video/mp4">
+        </video>
+        <div id="wipe-bar"></div>
+    </div>
 
     <!-- 背景装飾 -->
     <div class="bg-left" aria-hidden="true">
@@ -75,11 +84,11 @@
                         <h3 id="section-spice" class="section-title title-blue">SPICEとは？</h3>
                     </div>
                     <p>
-                        テーマはスパイスで顔をビジュアル的に表現しました。
+                        テーマは「スパイス」で、顔をビジュアル的に表現しました。
                         スパイスは料理で使われる調味料という意味があります。
                         調味料は刺激、変化をもたらすもので、今回はその要素を東京造形大学で得られる経験や学びと捉えました。
                         東京造形大学の強みは他専攻領域の学びを得られること、そして大学の規模がコンパクトであるため、領域を越えて協力したり、互いに刺激を受けながら学べることだと思います。<br>
-                        そうした環境の中で、自分一人では思いもよたらなかった刺激に出会い想像していかなった顔が生まれます。これは、異なる色や形を組み合わせることで誕生する顔。偶然性を表現しました。
+                        そうした環境の中で、自分一人では思いもよらなかった刺激に出会い、想像していなかった顔が生まれます。これは、異なる色や形を組み合わせることで誕生する顔。偶然性を表現しました。
                     </p>
                 </section>
 
@@ -93,13 +102,130 @@
                     </p>
                     <p class="note">※オープンキャンパスで教員による大学院入試の事前相談は行っておりません。</p>
                 </section>
+                <!-- 各専攻領域 -->
+                <section class="section majors-area" aria-labelledby="section-majors">
+                    <div class="section-header">
+                        <img class="title-icon" src="images/titlehaedicon.png" alt="">
+                        <h3 id="section-majors" class="section-title title-black">各専攻領域</h3>
+                    </div>
+
+                    <div class="majors-grid">
+                        <a href="html/graphicDesign.html" class="major-item graphic" target="_blank"
+                            rel="noopener noreferrer">
+                            <img src="images/homegd-icon.png" alt="グラフィックデザイン">
+                        </a>
+
+                        <a href="html/photography.html" class="major-item photography" target="_blank"
+                            rel="noopener noreferrer">
+                            <img src="images/homeph-icon.png" alt="写真">
+                        </a>
+
+                        <a href="html/filmMovingImage.html" class="major-item film" target="_blank"
+                            rel="noopener noreferrer">
+                            <img src="images/homefm-icon.png" alt="映画映像">
+                        </a>
+
+                        <a href="html/animation.html" class="major-item animation" target="_blank"
+                            rel="noopener noreferrer">
+                            <img src="images/homean-icon.png" alt="アニメーション">
+                        </a>
+
+                        <a href="html/mediaDesign.html" class="major-item media" target="_blank"
+                            rel="noopener noreferrer">
+                            <img src="images/homemd-icon.png" alt="メディアデザイン">
+                        </a>
+
+                        <a href="html/furnitureInteriorArchitecture.html" class="major-item interior" target="_blank"
+                            rel="noopener noreferrer">
+                            <img src="images/homeia-icon.png" alt="室内建築">
+                        </a>
+
+                        <a href="html/industrialDesign.html" class="major-item industrial" target="_blank"
+                            rel="noopener noreferrer">
+                            <img src="images/homeid-icon.png" alt="インダストリアルデザイン">
+                        </a>
+
+                        <a href="html/painting.html" class="major-item painting" target="_blank"
+                            rel="noopener noreferrer">
+                            <img src="images/homefa-icon.png" alt="絵画">
+                        </a>
+
+                        <a href="html/sculpture.html" class="major-item sculpture" target="_blank"
+                            rel="noopener noreferrer">
+                            <img src="images/homest-icon.png" alt="彫刻">
+                        </a>
+
+                        <a href="html/textileDesign.html" class="major-item textile" target="_blank"
+                            rel="noopener noreferrer">
+                            <img src="images/hometd-icon.png" alt="テキスタイルデザイン">
+                        </a>
+
+                        <a href="html/others.html" class="major-item others" target="_blank" rel="noopener noreferrer">
+                            <img src="images/homeoh-icon.png" alt="その他">
+                        </a>
+                    </div>
+                </section>
+
+                <div class="content-area access-wrapper">
+
+                    <section class="section access-area" aria-labelledby="section-access">
+                        <div class="access-container">
+
+                            <div class="access-map">
+                                <iframe src="https://maps.google.com/maps?q=東京造形大学&output=embed&z=16" width="100%"
+                                    height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+
+                            <div class="access-info">
+                                <div class="section-header">
+                                    <img class="title-icon" src="images/titlehaedicon.png" alt="">
+                                    <h3 id="section-access" class="section-title title-blue">アクセス</h3>
+                                </div>
+
+                                <div class="access-details">
+                                    <p class="university-name">東京造形大学</p>
+                                    <p class="address">〒192-0992 東京都八王子市宇津貫町1556</p>
+                                    <p class="tel">TEL：042-637-8111</p>
+                                    <p class="transport">
+                                        交通：JR横浜線相原駅よりスクールバス5分・徒歩15分
+                                    </p>
+                                    <p class="link-paragraph">
+                                        <a href="https://www.zokei.ac.jp" target="_blank" rel="noopener noreferrer"
+                                            class="university-link">https://www.zokei.ac.jp</a>
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+
+                    <section class="section notice-area" aria-labelledby="section-notice">
+                        <div class="section-header">
+                            <img class="title-icon" src="images/titlehaedicon.png" alt="">
+                            <h3 id="section-notice" class="section-title title-orange">ご参加に際してのお願い</h3>
+                        </div>
+                        <div class="notice-content">
+                            <p>ご来場にあたっては、以下のお願いを事前にご確認ください。</p>
+                            <ol class="notice-list">
+                                <li>当日、37.5度以上の発熱症状がある場合は、参加をお控えください。</li>
+                                <li>自家用車でご来校される場合、キャンパス内に駐車場はご用意しておりませんので、本学の最寄り駅（相原駅）にあるコインパーキングをご利用ください。当日は、JR横浜線
+                                    相原駅よりスクールバスを運行します。なお、相原駅から本学までは徒歩約15分ですので、徒歩で来校することも可能です。</li>
+                                <li>当日、食堂やカフェテリアは営業しておりますので、昼食にご利用いただけます。（それ以外の場所での食事はご遠慮ください。）</li>
+                                <li>オープンキャンパスで教員による大学院入試の事前相談はできません。</li>
+                            </ol>
+                        </div>
+                    </section>
+
+                </div>
 
             </div>
 
-            <!-- Coming Soon -->
+            <!-- Coming Soonの名残 -->
             <div class="coming-soon-wrapper" aria-label="Coming Soon">
                 <div class="coming-soon">
-                    <img src="images/comingsoon.png" alt="Coming Soon...">
+                    <img src="images/impact.png" alt="impact">
                 </div>
                 <div class="coming-soon-face">
                     <img src="images/footerface.png" alt="">

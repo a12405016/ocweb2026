@@ -11,6 +11,8 @@
 *,
 *::before,
 *::after {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -26,7 +28,6 @@ body {
     margin: 0;
     padding: 0;
     position: relative;
-    overflow-x: hidden;
     min-height: 100vh;
 }
 
@@ -48,13 +49,13 @@ img {
 
 .bg-left {
     left: 0;
-    width: clamp(160px, 22vw, 420px);
+    width: clamp(140px, 22vw, 420px);
     margin-top: 100px;
 }
 
 .bg-right {
-    right: -60px;
-    width: clamp(200px, 38vw, 680px);
+    right: 0;
+    width: clamp(200px, 30vw, 680px);
 }
 
 .bg-left img,
@@ -67,6 +68,8 @@ img {
 .page-wrapper {
     position: relative;
     z-index: 1;
+    overflow-x: hidden;
+
 }
 
 /* ─── ヘッダー ─── */
@@ -198,7 +201,7 @@ header {
 }
 
 .section p {
-    font-size: clamp(0.95rem, 2.2vw, 1.15rem);
+    font-size: clamp(0.95rem, 2.2vw, 1.25rem);
     line-height: 1.95;
     margin: 0 0 12px;
 }
@@ -209,7 +212,241 @@ header {
     margin-top: 12px !important;
 }
 
-/* ─── Coming Soonエリア ─── */
+
+/* ==================================================
+　各専攻領域セクションのスタイル
+================================================== */
+.majors-area {
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+}
+
+.majors-area .section-header {
+    margin-bottom: 2rem;
+    text-align: center;
+    justify-content: center;
+}
+
+.title-black {
+    color: #1a1a1a;
+    font-weight: 900;
+}
+
+/* スマホ版：きれいな2カラム（サイズはそのまま） */
+.majors-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 15px;
+    justify-items: center;
+    align-items: center;
+    margin-top: 40px;
+    padding: 0 20px;
+}
+
+.major-item {
+    display: block;
+    /* スマホ版のサイズ感（必要に応じて調整してください） */
+    transition: transform 0.2s ease;
+    background-color: transparent;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.major-item.graphic {
+    width: 90%;
+}
+
+.major-item.photography {
+    width: 50%;
+}
+
+.major-item.film {
+    width: 60%;
+}
+
+.major-item.animation {
+    width: 70%;
+}
+
+.major-item.media {
+    width: 100%;
+}
+
+.major-item.interior {
+    width: 50%;
+}
+
+.major-item.industrial {
+    width: 130%;
+}
+
+.major-item.painting {
+    width: 50%;
+}
+
+.major-item.sculpture {
+    width: 55%;
+}
+
+.major-item.textile {
+    width: 100%;
+}
+
+.major-item.others {
+    width: 40%;
+}
+
+.major-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.major-item:active,
+.major-item:hover {
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+/* スマホ版の「その他」の中央寄せ */
+.major-item.others {
+    grid-column: span 2;
+    max-width: 150px;
+}
+
+/* ==================================================
+PC・タブレット表示（画面幅 768px 以上）
+画像のサイズを大きくし、スクリーンショット通りに配置をずらします
+================================================== */
+@media (min-width: 768px) {
+    .majors-grid {
+        grid-template-columns: repeat(4, 1fr);
+        /* 基本は4列のグリッド */
+        gap: 4vw 1vw;
+        /* 位置をずらすための上下左右の余白スペース */
+        max-width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 40px 40px 0 40px;
+        margin-bottom: -200px;
+    }
+
+    /* PC版では全体の画像サイズを大きくする */
+    .major-item {
+        max-width: none;
+        width: 100%;
+        position: relative;
+        /* 重なり順をコントロールできるようにする */
+
+        /* PC版のみ、背景と同じカラー（#F8DE00）の不透明度80%を設定 */
+        background-color: rgb(253, 208, 0, 0.8);
+        border-radius: 15px;
+        padding: 15px;
+    }
+
+    /* スマホ用のぶち抜きを解除 */
+    .major-item.others {
+        grid-column: span 1;
+    }
+
+    /* --------------------------------------------------
+（数字を変更することで、いつでもズレ具合を微調整できます）
+    -------------------------------------------------- */
+
+    /* 1行目 */
+    .major-item.graphic {
+        width: 200%;
+        transform: translate(-50px, 30px);
+        /* 左に少し、下にやや大きくズラす */
+        z-index: 1;
+    }
+
+    .major-item.photography {
+        width: 115%;
+        transform: translate(15px, -20px);
+        /* 右に少し、上に上げる */
+        z-index: 2;
+    }
+
+    .major-item.film {
+        width: 120%;
+        transform: translate(40px, 40px);
+        /* そのままで、下に大きく下げる */
+        z-index: 1;
+    }
+
+    .major-item.animation {
+        width: 160%;
+        transform: translate(80px, -15px);
+        /* 左上に逃がす */
+        z-index: 2;
+    }
+
+    /* 2行目 */
+    .major-item.media {
+        grid-column: 2;
+        /* 強制的に2列目から配置して真ん中に寄せる */
+        width: 200%;
+        transform: translate(-20px, 10px);
+        /* 左側に大きく引っ張る */
+        z-index: 3;
+    }
+
+    .major-item.interior {
+        grid-column: 3;
+        width: 110%;
+        /* 強制的に3列目に配置 */
+        transform: translate(100px, 0px);
+        /* 右上に大きく引っ張る */
+        z-index: 2;
+    }
+
+    /* 3行目 */
+    .major-item.industrial {
+        grid-column: 1;
+        width: 280%;
+        transform: translate(-20px, -100px);
+        z-index: 2;
+    }
+
+    .major-item.painting {
+        grid-column: 3;
+        width: 110%;
+        /* 室内建築の下あたりに配置 */
+        transform: translate(100px, -40px);
+        z-index: 4;
+    }
+
+    .major-item.sculpture {
+        grid-column: 4;
+        width: 130%;
+        transform: translate(140px, 10px);
+        z-index: 3;
+    }
+
+    /* 4行目（テキスタイル） */
+    .major-item.textile {
+        grid-column: 2;
+        /* 画面の中央寄りに配置 */
+        width: 220%;
+        transform: translate(30px, -160px);
+        z-index: 1;
+    }
+
+    /* 5行目（その他） */
+    .major-item.others {
+        grid-column: 2 / span 2;
+        /* 真ん中2列分を使ってど真ん中に配置 */
+        width: 90%;
+        transform: translate(0px, -200px);
+        /* 下に余韻を持たせる */
+        z-index: 6;
+    }
+}
+
+
+
+/* ─── Coming Soonの名残エリア ─── */
 .coming-soon-wrapper {
     display: flex;
     align-items: flex-start;
@@ -290,9 +527,18 @@ footer {
 }
 
 /* ─── レスポンシブ ─── */
+@media (min-width: 769px) {
+    .logo-icon {
+        position: fixed;
+        z-index: 2;
+        background-color: rgb(253, 208, 0, 0.5);
+    }
+}
+
 @media (max-width: 768px) {
     .bg-left {
         opacity: 0.45;
+        left: -30px;
     }
 
     .bg-right {

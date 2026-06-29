@@ -1,0 +1,250 @@
+@charset "UTF-8";
+
+/* ==================================================
+   アクセス・ご参加に際してのお願い セクション
+================================================== */
+.access-wrapper {
+    margin-top: 4rem;
+    margin-bottom: 6rem;
+    padding: 0 20px;
+    box-sizing: border-box;
+
+    /* 【重要】ここを追加して、装飾背景イラストよりも手前に表示させます */
+    position: relative;
+    z-index: 10;
+}
+
+/* 【スマホ版：1カラム設定】
+   flex-direction: column; を指定することで、マップと文章が縦一列に並びます。
+*/
+.access-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    /* マップと文章の間の縦の隙間 */
+    width: 100%;
+}
+
+/* --- Googleマップ（スマホ版で横幅100%） --- */
+.access-map {
+    width: 100%;
+    height: 300px;
+    /* スマホで見たときのマップの高さ */
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.access-map iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/* --- アクセス文字情報（スマホ版で横幅100%） --- */
+.access-info {
+    width: 100%;
+}
+
+.access-info .section-header {
+    justify-content: flex-start;
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.access-details {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #1a1a1a;
+}
+
+.access-details .university-name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.access-details .address,
+.access-details .tel {
+    font-size: 1rem;
+}
+
+.access-details .transport {
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+.access-details .transport-sub {
+    display: inline-block;
+    padding-left: 3em;
+}
+
+.access-details .university-link {
+    display: inline-block;
+    color: #e54d4d;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+/* --- ご参加に際してのお願い（スマホ版） --- */
+.notice-area {
+    margin-top: 5rem;
+}
+
+.notice-area .section-header {
+    justify-content: flex-start;
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.notice-content {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #1a1a1a;
+}
+
+.notice-list {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: notice-counter;
+}
+
+.notice-list li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.notice-list li:nth-child(1)::before {
+    content: "①";
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.notice-list li:nth-child(2)::before {
+    content: "②";
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.notice-list li:nth-child(3)::before {
+    content: "③";
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.notice-list li:nth-child(4)::before {
+    content: "④";
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+
+/* ==================================================
+   PC・タブレット表示（画面幅 768px 以上になったら2カラムにする）
+================================================== */
+@media (min-width: 768px) {
+    .access-wrapper {
+        padding: 0;
+        /* PC版では全体のコンテナ幅に合わせるためpaddingをリセット */
+    }
+
+    /* 横並び（2カラム）に切り替え */
+    .access-container {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 5%;
+    }
+
+    /* PC版のそれぞれの横幅を指定 */
+    .access-map {
+        width: 45%;
+        height: auto;
+        min-height: 380px;
+    }
+
+    .access-info {
+        width: 50%;
+    }
+
+    .access-details {
+        font-size: 1.1rem;
+    }
+}
+
+.access-details {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #1a1a1a;
+}
+
+.access-details .university-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+}
+
+.access-details p {
+    margin-bottom: 0.3rem;
+    /* 行間の隙間を程よくキープ */
+}
+
+/* 交通案内は改行せず自然につなげるスタイルに変更 */
+.access-details .transport {
+    margin-top: 0.8rem;
+    /* 参考サイトのような落ち着いた青色にしたい場合はここを調整（黒のままでもOK） */
+}
+
+.access-details .link-paragraph {
+    margin-top: 1rem;
+}
+
+.access-details .university-link {
+    color: #ea580c;
+    text-decoration: underline;
+    font-size: 1.1rem;
+    transition: opacity 0.2s ease;
+}
+
+.access-details .university-link:hover {
+    opacity: 0.7;
+}
+
+/* ==================================================
+   PC・タブレット表示（画面幅 768px 以上）
+================================================== */
+@media (min-width: 768px) {
+    .access-wrapper {
+        padding: 0;
+        /* 全体のコンテナ幅に合わせる */
+        margin-bottom: 8rem;
+    }
+
+    /* 横並び（2カラム）の共通設定 */
+    .access-container {
+        flex-direction: row;
+        align-items: flex-start;
+        /* 上揃えにして文字の開始位置をマップと合わせる */
+        gap: 5%;
+        /* 左右の余白（マップ60% + 文章35% + 余白5% = 合計100%） */
+    }
+
+    /* 【修正】Googleマップ側を大きく設定 */
+    .access-map {
+        width: 60%;
+        height: 450px;
+        /* 横幅が広がった分、高さも少し出してあげると見栄えのバランスが良くなります */
+    }
+
+    /* 【修正】アクセスの文章側の幅を少しスマートに */
+    .access-info {
+        width: 35%;
+    }
+
+    .access-details {
+        font-size: 1.1rem;
+    }
+}
