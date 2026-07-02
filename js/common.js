@@ -1,11 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-
-
-    adjustBg();
-    window.addEventListener('resize', adjustBg);
-
-    const articles = document.querySelectorAll('.article');
+    const articles = document.querySelectorAll('.program-card');
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {

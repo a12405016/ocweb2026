@@ -223,6 +223,18 @@ header {
     padding: 0;
     box-shadow: none;
     margin-bottom: 60px;
+
+    opacity: 0;
+    transform: translateY(40px);
+    /* 40px下から浮き上がらせる */
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+        transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.program-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+
 }
 
 .program-card>div:first-child {
@@ -469,7 +481,7 @@ header {
 }
 
 /* ==================================================
-   PC対応レイアウト（画面幅 768px 以上）
+PC対応レイアウト（画面幅 768px 以上）
 ================================================== */
 @media (min-width: 768px) {
     .programs-container {
@@ -483,7 +495,7 @@ header {
 }
 
 /* ==================================================
-   ページトップに戻るボタン（Scroll to Top）
+ページトップに戻るボタン（Scroll to Top）
 ================================================== */
 .page-top-btn {
     position: fixed;
