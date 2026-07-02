@@ -169,7 +169,7 @@ header {
 }
 
 /* メインアイコンのサイズ */
-.gd-main-icon {
+.main-icon {
     width: clamp(200px, 30vw, 300px);
     height: auto;
 }
@@ -190,6 +190,12 @@ header {
 /* グラフィックデザインの文字色（赤） */
 .text-red {
     color: var(--text-red);
+}
+
+.text-ph {
+    color: #027136;
+    transform: rotate(2.4deg);
+    display: inline-block;
 }
 
 /* --- プログラムカードのレイアウト（スマホ標準：1カラム） --- */
@@ -223,7 +229,6 @@ header {
     padding: 0;
     box-shadow: none;
     margin-bottom: 60px;
-
     opacity: 0;
     transform: translateY(40px);
     /* 40px下から浮き上がらせる */
