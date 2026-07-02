@@ -37,6 +37,10 @@ img {
     vertical-align: bottom;
 }
 
+li {
+    list-style: none;
+}
+
 /* ─── ページ全体のラッパー ─── */
 .page-wrapper {
     position: relative;
@@ -57,20 +61,26 @@ img {
 
 .bg-left {
     left: 0;
-    width: clamp(140px, 22vw, 420px);
+    width: clamp(100px, 30vw, 200px);
     margin-top: 100px;
 }
 
 .bg-right {
     right: 0;
-    width: clamp(200px, 30vw, 680px);
+    width: clamp(150px, 30vw, 400px);
+    margin-top: 100px;
 }
 
 .bg-left img,
 .bg-right img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    /* 追加 */
+    object-fit: cover;
+    /* 追加：縦長画像を上から順に表示 */
+    object-position: top;
 }
+
 
 /* ─── ヘッダー ─── */
 header {
@@ -91,19 +101,386 @@ header {
     z-index: 999;
 }
 
-/* ─── レスポンシブ ─── */
 @media (min-width: 769px) {
+
     .logo-icon {
         position: fixed;
         z-index: 2;
         background-color: rgb(253, 208, 0, 0.5);
     }
+
+}
+
+/* ==================================================
+   【右上固定】TOPへ戻る画像専用スタイル
+================================================== */
+.fixed-top-back {
+    position: fixed;
+    /* 画面に対して固定 */
+    top: 22px;
+    /* 上からの位置（左のロゴと高さを合わせる） */
+    right: clamp(20px, 5vw, 80px);
+    /* 画面の右端から常に一定の余白で右寄せ */
+    z-index: 999;
+    /* 最前面に表示 */
+}
+
+.fixed-top-back a {
+    display: inline-block;
+    transition: opacity 0.2s ease;
+}
+
+.fixed-top-back a:hover {
+    opacity: 0.75;
+}
+
+/* 画像のサイズ調整 */
+.fixed-top-back img {
+    height: clamp(60px, 15vw, 200px);
+    /* 画面サイズに合わせて自動で綺麗に拡縮 */
+    width: auto;
+    display: block;
+}
+
+/* --- メイン・タイトルエリア --- */
+.major-main-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* ─── 専攻タイトルエリア ─── */
+.major-title-section {
+    text-align: center;
+    margin-top: 140px;
+    /* 上部固定ロゴとの被り防止の余白 */
+    margin-bottom: 60px;
+    /* 下のコンテンツとの間の余白 */
+}
+
+.major-title-visual {
+    display: inline-flex;
+    flex-direction: column;
+    /* 画像と文字を縦一列に並べる */
+    align-items: center;
+    /* 中央揃え */
+    gap: 30px;
+    /* ★アイコンと文字の間の距離（ここでお好みの間隔に調整できます） */
+}
+
+/* メインアイコンのサイズ */
+.gd-main-icon {
+    width: clamp(200px, 30vw, 300px);
+    height: auto;
+}
+
+/* 専攻名のテキスト（シンプルに赤く大きくするだけ） */
+.major-name-title {
+    font-size: clamp(2.0rem, 4vw, 3.0rem);
+    font-weight: 900;
+    margin: 0;
+}
+
+.slant-text {
+    /* 中央配置の補正（-50%）にプラスして、右上がりに約-7度回転させる */
+    transform: rotate(-5deg);
+    display: inline-block;
+}
+
+/* グラフィックデザインの文字色（赤） */
+.text-red {
+    color: var(--text-red);
+}
+
+/* --- プログラムカードのレイアウト（スマホ標準：1カラム） --- */
+.programs-section .section-header {
+    justify-content: flex-start;
+    margin-bottom: 40px;
+}
+
+.programs-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+/* ==================================================
+   プログラム一覧セクション（指定HTML専用カンプ再現スタイル）
+================================================== */
+
+/* セクション全体のコンテナ */
+.programs-section {
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 40px 20px 100px 20px;
+}
+
+/* ─── プログラムカード全体 ─── */
+.program-card {
+    /* 内部要素を絶対配置するための基準 */
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+    margin-bottom: 60px;
+}
+
+.program-card>div:first-child {
+    margin-left: auto;
+    margin-right: 0;
+    width: 100px;
+    text-align: end;
+    margin-bottom: -50px;
+    position: relative;
+}
+
+/* 「講演」のテキストスタイル */
+.program-genre {
+    font-size: 1.2rem;
+    color: #111111;
+    margin: 0 0 4px 0;
+    position: relative;
+    z-index: 10;
+}
+
+/* 緑波線画像（program-genre.png）のサイズと配置 */
+.program-card>div:first-child img {
+    width: 100px;
+    height: auto;
+    transform: translate(10px, -40px);
+    position: relative;
+    z-index: 1;
+}
+
+/* ─── ボディコンテナ ─── */
+.program-body {
+    display: flex;
+    align-items: flex-start;
+    /* 上揃えで横並びにする */
+    justify-content: space-between;
+    /* タイトルを左、場所を右に引き離す */
+    position: relative;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+/* ナンバリングバッジ */
+.program-number {
+    background-image: url("../images/titlehaedicon.png");
+    background-size: cover;
+    background-position: center;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+    border-radius: 50%;
+    padding-bottom: 5px;
 }
 
 
+/* プログラムタイトル */
+.program-title {
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: #111111;
+    line-height: 1.3;
+    max-width: 70%;
+    transform: translate(0, 4px);
+    margin-left: -40px;
+}
+
+/* ─── 右側の実施場所・部屋番号セット ─── */
+/* 赤いマップ画像（.program-place） */
+.program-place {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.program-place img {
+    width: 145px;
+    height: auto;
+    position: absolute;
+    z-index: 10;
+    transform: translate(-60px, 0px);
+}
+
+/* 「8-203」とピン画像が入ったulリスト */
+.program-body ul {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+}
+
+/* 「8-203」のテキストボックス */
+.program-body ul li:nth-child(1) p {
+    background-color: #FFF2B0;
+    padding: 5px 30px 5px 15px;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #111111;
+    border-radius: 4px;
+    margin: 0;
+    white-space: nowrap;
+    /* 途中で改行させない */
+}
+
+/* 赤いピン画像（ボックスの左側に絶対配置で重ねる） */
+.program-body ul li:nth-child(2) {
+    position: absolute;
+    right: -1px;
+    /* ★50%から「-12px」などの固定値に変えることで、上に少し浮かせます */
+    top: -1px;
+    transform: translateY(-50%);
+    /* 縦方向の中央揃え */
+}
+
+.program-body ul li:nth-child(2) img {
+    width: 22px;
+    /* カンプに合わせたピンのサイズ */
+    height: auto;
+    display: block;
+}
+
+/* ─── 中央のキャッチコピー（薄黄色の大きな帯） ─── */
+.program-catch {
+    background-color: #FFF2B0;
+    /* パキッとした薄黄色の帯背景 */
+    color: #111111 !important;
+    /* カンプ通りの黒文字 */
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: 16px 24px;
+    margin: 0 0 25px 0 !important;
+    border-radius: 4px;
+    line-height: 1.5;
+    clear: both;
+}
+
+/* ─── 本文テキスト ─── */
+.program-description {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #111111;
+    line-height: 1.7;
+    margin: 0 0 35px 0;
+    padding: 0 5px;
+}
+
+/* ─── 下部の日時情報エリア ─── */
+.program-meta-info {
+    border-top: none;
+    /* 余計な線は消去 */
+    padding-top: 0;
+    padding-left: 5px;
+}
+
+/* 元のHTMLにある不要な「トークショー」「10号館...」のテキストを非表示にしてカンプに合わせる */
+.program-meta-info .meta-item:nth-child(1),
+.program-meta-info .meta-item:nth-child(2) {
+    display: none;
+}
+
+/* 日時テキストのみを表示し、2列に近い見栄えに調整 */
+.program-meta-info .meta-item:nth-child(3) {
+    display: block;
+}
+
+.program-meta-info .meta-item:nth-child(3) span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #111111;
+    line-height: 1.8;
+    display: inline-block;
+    margin-right: 40px;
+}
 
 
+/* ─── レスポンシブ（スマートフォン表示）の最適化 ─── */
+@media (max-width: 767px) {
 
+    .bg-left,
+    .bg-right {
+        opacity: 0.6;
+    }
+
+    .program-title {
+        font-size: 1.2rem;
+        max-width: 50%;
+        transform: translateX(10px);
+    }
+
+    .program-title {
+        padding-left: 20px;
+        margin-bottom: 5px;
+        position: relative;
+        z-index: 999;
+        transform: translateY(10px);
+    }
+
+    .program-body>img:nth-of-type(1) {
+        width: 65px;
+        right: 105px;
+        top: 20px;
+    }
+
+    .program-body>p:nth-of-type(1) {
+        font-size: 1.0rem;
+        right: 10px;
+        top: 32px;
+        padding: 3px 10px 3px 22px;
+    }
+
+    .program-body>img:nth-of-type(2) {
+        width: 16px;
+        right: 78px;
+        top: 27px;
+    }
+
+    .program-catch {
+        font-size: 1.1rem;
+        padding: 12px 16px;
+    }
+
+    .program-description {
+        font-size: 0.95rem;
+    }
+
+    .program-meta-info .meta-item:nth-child(3) span {
+        font-size: 1.0rem;
+    }
+
+    .program-place img {
+        width: clamp(100px, 8vw, 130px);
+        height: auto;
+        position: absolute;
+        z-index: 10;
+        transform: translate(-60px, 0px);
+    }
+}
+
+/* ==================================================
+   PC対応レイアウト（画面幅 768px 以上）
+================================================== */
+@media (min-width: 768px) {
+    .programs-container {
+        gap: 50px 30px;
+    }
+
+    .major-name-title {
+        font-size: 2.8rem;
+    }
+
+}
 
 /* ==================================================
    ページトップに戻るボタン（Scroll to Top）

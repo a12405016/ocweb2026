@@ -91,6 +91,16 @@ header {
     z-index: 999;
 }
 
+@media (min-width: 769px) {
+
+    .logo-icon {
+        position: fixed;
+        z-index: 2;
+        background-color: rgb(253, 208, 0, 0.5);
+    }
+
+}
+
 /* ─── ヒーロー ─── */
 .hero {
     text-align: center;
@@ -682,5 +692,62 @@ footer {
         width: 50%;
         margin-top: -40px;
         align-self: flex-end;
+    }
+}
+
+/* ==================================================
+   ページトップに戻るボタン（Scroll to Top）
+================================================== */
+.page-top-btn {
+    position: fixed;
+    right: 25px;
+    bottom: 40px;
+    width: 50px;
+    height: 50px;
+    background-color: #1a1a1a;
+    /* ボタンの背景色 */
+    color: #ffffff;
+    /* 矢印の色 */
+    border: none;
+    border-radius: 50%;
+    /* 丸いボタンにする */
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    /* 一番手前に表示 */
+
+    /* 初期状態は非表示（透明＆少し下に下げておく） */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.2s ease;
+}
+
+/* ある程度スクロールしてクラス「is-show」がついたら表示する */
+.page-top-btn.is-show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* ホバーしたときの動き */
+.page-top-btn:hover {
+    background-color: #ff3b30;
+    /* ホバー時にアクセントカラー（例: 赤・オレンジ系）に変化 */
+    transform: scale(1.05);
+}
+
+/* スマホ表示での調整 */
+@media (max-width: 767px) {
+    .page-top-btn {
+        right: 15px;
+        bottom: 40px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
     }
 }
