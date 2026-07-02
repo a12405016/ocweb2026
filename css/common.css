@@ -198,6 +198,24 @@ header {
     display: inline-block;
 }
 
+.text-fm {
+    color: #2C1F14;
+    transform: rotate(5.2deg);
+    display: inline-block;
+}
+
+.text-an {
+    color: #0EA939;
+    transform: rotate(-3deg);
+    display: inline-block;
+}
+
+.text-md {
+    color: #0695CB;
+    transform: rotate(0deg);
+    display: inline-block;
+}
+
 /* --- プログラムカードのレイアウト（スマホ標準：1カラム） --- */
 .programs-section .section-header {
     justify-content: flex-start;
@@ -211,7 +229,7 @@ header {
 }
 
 /* ==================================================
-   プログラム一覧セクション（指定HTML専用カンプ再現スタイル）
+プログラム一覧セクション（指定HTML専用カンプ再現スタイル）
 ================================================== */
 
 /* セクション全体のコンテナ */
